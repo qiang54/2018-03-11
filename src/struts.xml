@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+	"http://struts.apache.org/dtds/struts-2.3.dtd">
+
+<struts>
+
+
+    <package name="default" namespace="/" extends="struts-default">
+		<action name="hello" class="com.test.demo.HelloAction" method="sayHello">
+			<result name="ok" >/jsp/suss.jsp</result>
+		</action>
+		<!-- POJO类的方式 -->
+       	<action name="demo1Action" class="com.test.demo.Demo1Action"></action>
+       	
+       	<!-- 实现了Action 接口的方式 -->
+       	<action name="demo2Action" class="com.test.demo.Demo2Action">
+       		<result name="success">/jsp/suss.jsp</result>
+       	</action>
+       	<!-- 继承了ActionSupport类 -->
+       	<action name="demo3Action" class="com.test.demo.Demo3Action">
+       	</action>
+    </package>
+   
+	<package name="demo2" namespace="/" extends="struts-default">
+		 <!-- 传统配置方法式-->
+		<action name="saveCust" class="com.test.demo.CustomerAction" method="save"></action>
+		<action name="deleteCust" class="com.test.demo.CustomerAction" method="delete"></action>
+	
+		<!-- 通配符的方式 -->
+		<action name="linkman_*" class="com.test.demo.LinkmanAction" method="{1}">
+			<result name="saveOK">/jsp/suss.jsp</result>
+			<result name="delOK">/jsp/error.jsp</result>
+		</action>
+	</package>
+   
+    <!-- Add packages here -->
+
+</struts>
