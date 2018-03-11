@@ -5,7 +5,8 @@
 
 <struts>
 
-
+   	<!-- 主要!!!首先开启动态常量访问方式 -->
+   	<constant name="struts.enable.DynamicMethodInvocation" value="true"></constant>
     <package name="default" namespace="/" extends="struts-default">
 		<action name="hello" class="com.test.demo.HelloAction" method="sayHello">
 			<result name="ok" >/jsp/suss.jsp</result>
@@ -32,7 +33,9 @@
 			<result name="saveOK">/jsp/suss.jsp</result>
 			<result name="delOK">/jsp/error.jsp</result>
 		</action>
+		<action name="user" class="com.test.demo.UserAction"></action>
 	</package>
+	
    
     <!-- Add packages here -->
 
